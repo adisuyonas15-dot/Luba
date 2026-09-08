@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'countdown_timer.dart';
+import '../../auctions/screens/auction_details_screen.dart';
 
 class AuctionCard extends StatelessWidget {
   final String productName;
@@ -82,7 +83,21 @@ class AuctionCard extends StatelessWidget {
             width: double.infinity,
             height: 42,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AuctionDetailsScreen(
+                      productName: productName,
+                      productValue: productValue,
+                      productIcon: imageIcon,
+                      hours: hours,
+                      minutes: minutes,
+                      seconds: seconds,
+                    ),
+                  ),
+                );
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF5B3DF5),
                 foregroundColor: Colors.white,
